@@ -1,0 +1,315 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+  --font-mono: var(--font-geist-mono);
+  
+  /* TaskLyne Brand Colors - HubSpot Style */
+  --color-taskly-orange: #FF7A00;
+  --color-taskly-orange-light: #FF8C1A;
+  --color-taskly-orange-dark: #E56A00;
+  --color-taskly-red: #D32F2F;
+  --color-taskly-red-light: #E53935;
+  --color-taskly-white: #FFFFFF;
+  --color-taskly-dark: #212529;
+  --color-taskly-light: #F8F9FA;
+}
+
+/* CSS Variables */
+:root {
+  --radius: 0.75rem;
+  --font-playfair: "Playfair Display", serif;
+  --font-inter: "Inter", sans-serif;
+  
+  /* Light Mode - HubSpot Inspired Design */
+  --background: #FFFFFF;
+  --foreground: #2D3748;
+  --card: #FFFFFF;
+  --card-foreground: #2D3748;
+  --popover: #FFFFFF;
+  --popover-foreground: #2D3748;
+  
+  /* Primary Brand Color - HubSpot Orange #FF7A00 */
+  --primary: #FF7A00;
+  --primary-foreground: #FFFFFF;
+  
+  /* Secondary - Slightly lighter orange */
+  --secondary: #FF8C1A;
+  --secondary-foreground: #FFFFFF;
+  
+  --muted: #F7FAFC;
+  --muted-foreground: #718096;
+  --accent: #FFF5EB;
+  --accent-foreground: #FF7A00;
+  --destructive: #E53E3E;
+  --destructive-foreground: #FFFFFF;
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --ring: #FF7A00;
+  
+  /* Chart Colors */
+  --chart-1: #FF7A00;
+  --chart-2: #FF8C1A;
+  --chart-3: #2D3748;
+  --chart-4: #718096;
+  --chart-5: #F7FAFC;
+  
+  /* Sidebar - Light */
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #2D3748;
+  --sidebar-primary: #FF7A00;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #FFF5EB;
+  --sidebar-accent-foreground: #FF7A00;
+  --sidebar-border: #E2E8F0;
+  --sidebar-ring: #FF7A00;
+}
+
+.dark {
+  --background: #1A202C;
+  --foreground: #F7FAFC;
+  --card: #2D3748;
+  --card-foreground: #F7FAFC;
+  --popover: #2D3748;
+  --popover-foreground: #F7FAFC;
+  
+  /* Primary Brand Color - #FF7A00 (maintained in dark mode) */
+  --primary: #FF7A00;
+  --primary-foreground: #FFFFFF;
+  
+  --secondary: #FF8C1A;
+  --secondary-foreground: #FFFFFF;
+  
+  --muted: #2D3748;
+  --muted-foreground: #A0AEC0;
+  --accent: #2D3748;
+  --accent-foreground: #FF7A00;
+  --destructive: #FC8181;
+  --destructive-foreground: #FFFFFF;
+  --border: #4A5568;
+  --input: #4A5568;
+  --ring: #FF7A00;
+  
+  /* Chart Colors - Dark */
+  --chart-1: #FF7A00;
+  --chart-2: #FF8C1A;
+  --chart-3: #F7FAFC;
+  --chart-4: #A0AEC0;
+  --chart-5: #2D3748;
+  
+  /* Sidebar - Dark */
+  --sidebar: #1A202C;
+  --sidebar-foreground: #F7FAFC;
+  --sidebar-primary: #FF7A00;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #2D3748;
+  --sidebar-accent-foreground: #FF7A00;
+  --sidebar-border: #4A5568;
+  --sidebar-ring: #FF7A00;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-playfair), serif;
+  }
+}
+
+/* TaskLyne Custom Utilities */
+@layer utilities {
+  .font-playfair {
+    font-family: var(--font-playfair), serif;
+  }
+  
+  .font-inter {
+    font-family: var(--font-inter), sans-serif;
+  }
+  
+  /* Brand Colors - HubSpot Orange */
+  .bg-taskly-orange {
+    background-color: #FF7A00;
+  }
+  
+  .bg-taskly-orange-light {
+    background-color: #FF8C1A;
+  }
+  
+  .bg-taskly-orange-dark {
+    background-color: #E56A00;
+  }
+  
+  .bg-taskly-white {
+    background-color: #FFFFFF;
+  }
+  
+  .bg-taskly-dark {
+    background-color: #212529;
+  }
+  
+  .bg-taskly-light {
+    background-color: #F8F9FA;
+  }
+  
+  .text-taskly-orange {
+    color: #FF7A00;
+  }
+  
+  .text-taskly-orange-light {
+    color: #FF8C1A;
+  }
+  
+  .text-taskly-orange-dark {
+    color: #E56A00;
+  }
+  
+  .text-taskly-white {
+    color: #FFFFFF;
+  }
+  
+  .text-taskly-dark {
+    color: #2D3748;
+  }
+  
+  .text-taskly-light {
+    color: #F8F9FA;
+  }
+  
+  .border-taskly-orange {
+    border-color: #FF7A00;
+  }
+  
+  .border-taskly-light {
+    border-color: #F8F9FA;
+  }
+  
+  /* Legacy red colors - still available */
+  .bg-taskly-red {
+    background-color: #FF7A00;
+  }
+  
+  .text-taskly-red {
+    color: #FF7A00;
+  }
+  
+  /* Hover States */
+  .hover-taskly-orange:hover {
+    background-color: #E56A00;
+  }
+  
+  /* Focus Ring */
+  .focus-ring:focus {
+    outline: none;
+    ring: 2px;
+    ring-color: #FF7A00;
+    ring-offset: 2px;
+  }
+}
+
+/* Animations */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes soft-float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fade-up 0.7s ease-out both;
+  }
+
+  .animate-soft-float {
+    animation: soft-float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-subtle {
+    animation: pulse-subtle 2s ease-in-out infinite;
+  }
+
+  .animation-delay-100 {
+    animation-delay: 0.1s;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 0.3s;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 0.4s;
+  }
+}
