@@ -48,6 +48,7 @@ jobs:
           npx vercel deploy --prod --yes \
             --project tasklyne \
             --token ${{ secrets.VERCEL_TOKEN }} \
+            --scope kanojiautkarsh-programmer
             --env NEXT_PUBLIC_SUPABASE_URL=${{ secrets.NEXT_PUBLIC_SUPABASE_URL }} \
             --env NEXT_PUBLIC_SUPABASE_ANON_KEY=${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }} \
             --env SUPABASE_SERVICE_ROLE_KEY=${{ secrets.SUPABASE_SERVICE_ROLE_KEY }} \
